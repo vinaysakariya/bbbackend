@@ -13,7 +13,7 @@ const router = express.Router();
 router.post("/create", allocateSeats);
 router.get("/read", allseats);
 router.put("/update/:id", updateseat);
-router.post("/delete/:id", deleteseat);
+router.delete("/delete/:id", deleteseat);
 router.get("/search", getsearchAll);
 
 module.exports = router;
