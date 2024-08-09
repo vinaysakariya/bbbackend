@@ -11,29 +11,22 @@ mongoose
   .connect(
     "mongodb+srv://vinaysakariya5042:Vap8S8e4EVaYqKD4@cluster0.qbsa7dg.mongodb.net/BusSoftware?retryWrites=true&w=majority"
     // "mongodb+srv://jayp_3008:jay123@cluster0.xycjrla.mongodb.net/BusSoftware?retryWrites=true&w=majority",
-
   )
   .then(() => console.log("MongoDB connected"))
   .catch((err) => console.error("MongoDB connection error:", err));
 
 // Define schemas
 
-
 async function seedAdminAndRole() {
   try {
-  
-
     const adminPipeline = [{ $match: { username: "admin" } }];
 
     const admin = await User.aggregate(adminPipeline);
     if (admin.length === 0) {
-
-      const hashedPassword = await bcrypt.hash("123456", 10);
+      const hashedPassword = await bcrypt.hash("1812", 10);
       await User.create({
-     
-        email: "admin@123.com",
+        email: "divu",
         password: hashedPassword, // Note: In a real application, hash passwords securely
-
       });
     }
 
@@ -46,5 +39,3 @@ async function seedAdminAndRole() {
 }
 
 seedAdminAndRole();
-
-
